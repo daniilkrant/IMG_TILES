@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public class Combiner {
     private static final int IMG_WIDTH = 300;
-    private static final int IMG_HEIGHT = 400;
+    private static final int IMG_HEIGHT = 300;
     private static final int MULTIPL = 70;
     private static File dir = new File("D:\\71_3dwall\\output");
     private static File output = new File("D:\\71_3dwall\\", "res.jpg");
@@ -42,6 +42,7 @@ public class Combiner {
             ImageIO.write(result, "jpg", output);
             System.out.println("Writed");
         } catch (IOException e) {
+            System.out.println("Error while writing");
             e.printStackTrace();
         }
         g.dispose();

@@ -24,6 +24,7 @@ public class Mozaika_GUI {
         JPanel btn_panel = new JPanel();
         frame.getContentPane().add(BorderLayout.SOUTH, btn_panel);
 
+
         JButton open_btn = new JButton("Open file");
         open_btn.addActionListener(new OpenFile());
         btn_panel.add(BorderLayout.WEST, open_btn);
@@ -38,7 +39,13 @@ public class Mozaika_GUI {
         @Override
         public void actionPerformed(ActionEvent e) {
             if (user_image != null) {
-                Combiner.make_result(user_image);
+                Thread t = new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Combiner.make_result(user_image);
+                    }
+                });
+                t.start();
             }
         }
     }
